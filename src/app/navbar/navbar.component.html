@@ -1,0 +1,18 @@
+<nav>
+  <div class="title">
+    <img class="responsive-image" src="../../assets/logo.png" alt="" />
+  </div>
+  <div class="menu">
+    <li *ngFor="let menuItem of menuItems">
+      <a
+        class="nav"
+        [routerLink]="menuItem.path"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="
+          menuItem.path === '' ? { exact: true } : { exact: false }
+        "
+        >{{ menuItem.label }}</a
+      >
+    </li>
+  </div>
+</nav>

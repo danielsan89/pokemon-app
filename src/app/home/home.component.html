@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-auto">
+      <div class="wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th [ngClass]="selectedTheme">Name</th>
+              <th [ngClass]="selectedTheme">Favorite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pokemon of pokemons">
+              <td
+                (click)="selectPokemon(pokemon)"
+                class="clickable"
+                [ngClass]="selectedTheme"
+              >
+                {{ pokemon.name | titlecase }}
+              </td>
+              <td align="center">
+                <span
+                  *ngIf="!isAlreadyFavorite(pokemon)"
+                  (click)="savePokemon(pokemon)"
+                  class="far fa-heart unsaved clickable"
+                  [ngClass]="selectedTheme"
+                ></span>
+                <span
+                  *ngIf="isAlreadyFavorite(pokemon)"
+                  (click)="savePokemon(pokemon)"
+                  class="fas fa-heart saved clickable"
+                ></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="selectedPokemon" class="col-md-auto" align="center">
+      <app-game-boy [pokemon]="selectedPokemon"></app-game-boy>
+    </div>
+  </div>
+  <div class="stats">
+    <p>Number of pokemons:</p>
+    <p>{{ totalPokemonsCount }}</p>
+  </div>
+  <div class="paginator">
+    <app-paginator
+      [selectedPage]="selectedPage"
+      [pagesNb]="totalPages"
+      (trigger)="triggerAPICall()"
+    ></app-paginator>
+  </div>
+</div>

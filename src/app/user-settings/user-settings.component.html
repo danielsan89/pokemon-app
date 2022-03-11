@@ -1,0 +1,50 @@
+<div class="container justify-content-center">
+  <div class="row">
+    <div class="col">
+      <p>Select theme for PokeAPP</p>
+      <button class="btn btn-light" (click)="changeUserTheme('light')">
+        light
+      </button>
+      <button class="btn btn-dark" (click)="changeUserTheme('dark')">
+        dark
+      </button>
+    </div>
+    <div class="col">
+      <p>Max. pokemons displayed per page</p>
+      <select
+        class="custom-select"
+        [(ngModel)]="limit"
+        (change)="selectLimit()"
+      >
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <div class="col">
+      <ng-container *ngIf="favoritePokemons.length; else noPokemon">
+        <p>You have saved {{ favoritePokemons.length }} pokemons</p>
+        <app-game-boy [pokemon]="favoritePokemons[pokemonIndex]"></app-game-boy>
+        <div class="footer">
+          <button
+            class="btn"
+            (click)="previousPokemon()"
+            [disabled]="pokemonIndex === 0"
+          >
+            <i class="fa fa-angle-left" [ngClass]="selectedTheme"></i>
+          </button>
+          <button
+            class="btn"
+            (click)="nextPokemon()"
+            [disabled]="pokemonIndex === favoritePokemons.length - 1"
+          >
+            <i class="fa fa-angle-right" [ngClass]="selectedTheme"></i>
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #noPokemon>
+        <p>You have no pokemons saved!</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

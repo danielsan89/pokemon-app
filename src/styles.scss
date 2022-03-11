@@ -1,0 +1,120 @@
+@import "variables.scss";
+
+* {
+  font-family: Pokemon-classic, sans-serif;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.game-boy {
+  display: inline-block;
+  .card {
+    color: black;
+    border: 2px solid black;
+    border-radius: 0 0 20px 20px;
+    background-color: #4f50db;
+    padding: 20px 40px 20px 40px;
+    margin: 10px 0 10px 0;
+    .header {
+      border: 2px solid black;
+      border-radius: 20px 20px 0 0;
+      background-color: #23252d;
+      padding: 25px 30px 30px 30px;
+      color: white;
+      text-align: center;
+    }
+    .screen {
+      background-color: #929d97;
+      border: 2px solid black;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    .card-body {
+      border: 2px solid black;
+      background-color: gray;
+      border-radius: 0 0 20px 20px;
+      font-size: small;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+nav {
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-top: 5px;
+  display: flex;
+  li {
+    list-style-type: none;
+  }
+}
+
+a {
+  color: white;
+  margin: 5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.responsive-image {
+  height: 5vh;
+  margin-left: 5px;
+}
+
+.active-link {
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  color: black;
+}
+
+footer {
+  background-color: grey;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+table {
+  margin-top: 10px;
+  th {
+    font-weight: bold;
+  }
+  td {
+    color: black;
+    font-size: small;
+  }
+}
+
+.dark {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 95%;
+}
+.light {
+  color: black;
+  width: 100%;
+  height: 95%;
+}

@@ -1,0 +1,15 @@
+<div class="game-boy">
+  <div class="card">
+    <div class="header">
+      <div class="screen">
+        <img [src]="pokemon.picture" class="card-img-top" alt="..." />
+      </div>
+      <p class="card-title">{{ pokemon.name | titlecase }}</p>
+    </div>
+    <div class="card-body">
+      <p>Height: {{ pokemon.height }}</p>
+      <p>Weight: {{ pokemon.weight }}</p>
+      <p>Abilities: {{ pokemon.listOfAbilities }}</p>
+    </div>
+  </div>
+</div>

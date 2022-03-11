@@ -1,0 +1,17 @@
+<button class="btn" [disabled]="selectedPage === 0" (click)="previousPage()">
+  <i class="fa fa-angle-left"></i>
+</button>
+
+<span>
+  Page
+  <select [(ngModel)]="selectedPage" (change)="selectPage(selectedPage)">
+    <option *ngFor="let i of pagesArray" value="{{ i }}">
+      {{ i }}
+    </option>
+  </select>
+  / {{ pagesNb }}
+</span>
+
+<button class="btn" [disabled]="selectedPage === pagesNb" (click)="nextPage()">
+  <i class="fa fa-angle-right"></i>
+</button>
