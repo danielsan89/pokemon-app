@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,18 +12,13 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { PaginatorComponent } from './utils/paginator/paginator.component';
 import { GameBoyComponent } from './utils/game-boy/game-boy.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    UserSettingsComponent,
-    PaginatorComponent,
-    GameBoyComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  exports: [HttpClientModule],
-  providers: [PokemonApiService, DataService],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        UserSettingsComponent,
+        PaginatorComponent,
+        GameBoyComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule, AppRoutingModule, FormsModule], providers: [PokemonApiService, DataService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
