@@ -3,22 +3,29 @@
 .stats {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .paginator {
   display: flex;
   justify-content: center;
-}
-
-.saved {
-  color: red;
+  align-items: center;
 }
 
 .wrapper {
   width: auto !important;
   height: 420px;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.saved {
+  color: red;
+}
+
+
 
 ::-webkit-scrollbar {
   display: none;
